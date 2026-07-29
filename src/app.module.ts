@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { PropertiesModule } from './properties/properties.module';
 import { VerificationModule } from './verification/verification.module';
+import { DocumentsModule } from './documents/documents.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { VerificationModule } from './verification/verification.module';
     AuthModule,
     PropertiesModule,
     VerificationModule,
+    DocumentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
