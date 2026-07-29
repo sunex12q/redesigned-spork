@@ -12,25 +12,28 @@ export class TasksService {
     private tasksRepository: Repository<Task>,
   ) {}
 
-  create(createTaskDto: CreateTaskDto): Promise<Task> {
-    const newTask = this.tasksRepository.create(createTaskDto);
+  create(createTaskDto: CreateTaskDto, userId: number): Promise<Task> {
+    const newTask = this.tasksRepository.create({
+      ...createTaskDto,
+      user: { id: userId },
+    });
     return this.tasksRepository.save(newTask);
   }
 
-  findAll(): Promise<Task[]> {
-    return this.tasksRepository.find();
+  findAll(userId: number): Promise<Task[]> {
+    return this.tasksRepository.find({ where: { user: { id: userId } } });
   }
 
-  findOne(id: number): Promise<Task | null> {
-    return this.tasksRepository.findOneBy({ id });
+  findOne(id: number, userId: number): Promise<Task | null> {
+    return this.tasksRepository.findOneBy({ id, user: { id: userId } });
   }
 
-  async update(id: number, updateTaskDto: UpdateTaskDto): Promise<Task | null> {
-    await this.tasksRepository.update(id, updateTaskDto);
-    return this.findOne(id);
+  async update(id: number, updateTaskDto: UpdateTaskDto, userId: number): Promise<Task | null> {
+    await this.tasksRepository.update({ id, user: { id: userId } }, updateTaskDto);
+    return this.findOne(id, userId);
   }
 
-  async remove(id: number): Promise<void> {
-    await this.tasksRepository.delete(id);
+  async remove(id: number, userId: number): Promise<void> {
+    await this.tasksRepository.delete({ id, user: { id: userId } });
   }
 }
