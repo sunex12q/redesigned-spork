@@ -11,6 +11,8 @@ import { VerificationModule } from './verification/verification.module';
 import { DocumentsModule } from './documents/documents.module';
 import { SavedPropertiesModule } from './saved-properties/saved-properties.module';
 import { PartnerSubmissionsModule } from './partner-submissions/partner-submissions.module';
+import { PaymentsModule } from './payments/payments.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [
@@ -37,6 +39,8 @@ import { PartnerSubmissionsModule } from './partner-submissions/partner-submissi
     DocumentsModule,
     SavedPropertiesModule,
     PartnerSubmissionsModule,
+    PaymentsModule,
+    NotificationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
