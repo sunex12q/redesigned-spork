@@ -10,6 +10,7 @@ import { PropertiesModule } from './properties/properties.module';
 import { VerificationModule } from './verification/verification.module';
 import { DocumentsModule } from './documents/documents.module';
 import { SavedPropertiesModule } from './saved-properties/saved-properties.module';
+import { PartnerSubmissionsModule } from './partner-submissions/partner-submissions.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { SavedPropertiesModule } from './saved-properties/saved-properties.modul
     VerificationModule,
     DocumentsModule,
     SavedPropertiesModule,
+    PartnerSubmissionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
