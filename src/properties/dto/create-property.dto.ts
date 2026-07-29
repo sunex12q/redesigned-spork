@@ -1,5 +1,5 @@
 import { IsString, IsNotEmpty, IsNumber, IsEnum, IsOptional, Min } from 'class-validator';
-import { PropertyCategory, ListingType } from '../entities/property.entity';
+import { PropertyCategory, ListingType, Currency } from '../entities/property.entity';
 
 export class CreatePropertyDto {
   @IsString()
@@ -13,6 +13,10 @@ export class CreatePropertyDto {
   @IsNumber()
   @Min(0)
   price: number;
+
+  @IsEnum(Currency)
+  @IsOptional()
+  currency?: Currency;
 
   @IsEnum(ListingType)
   @IsOptional()
