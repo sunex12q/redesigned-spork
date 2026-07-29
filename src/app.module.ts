@@ -7,6 +7,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { PropertiesModule } from './properties/properties.module';
+import { VerificationModule } from './verification/verification.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { PropertiesModule } from './properties/properties.module';
     UsersModule,
     AuthModule,
     PropertiesModule,
+    VerificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -6,6 +6,7 @@ export enum PropertyStatus {
   UNDER_VERIFICATION = 'under_verification',
   SOLD = 'sold',
   RESERVED = 'reserved',
+  RENTED = 'rented',
 }
 
 export enum PropertyCategory {
@@ -13,6 +14,12 @@ export enum PropertyCategory {
   RESIDENTIAL = 'residential',
   COMMERCIAL = 'commercial',
   AGRICULTURAL = 'agricultural',
+}
+
+export enum ListingType {
+  SALE = 'sale',
+  SHORT_TERM_RENT = 'short_term_rent',
+  LONG_TERM_RENT = 'long_term_rent',
 }
 
 @Entity()
@@ -28,6 +35,9 @@ export class Property {
 
   @Column('decimal')
   price: number;
+
+  @Column({ type: 'enum', enum: ListingType, default: ListingType.SALE })
+  listingType: ListingType;
 
   @Column()
   location: string;
