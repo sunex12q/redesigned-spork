@@ -1,13 +1,19 @@
-# Tasks API
+# Kaventra Backend
 
-A secure, multi-user REST API built with NestJS, TypeORM, and PostgreSQL.
+Backend API powering the Kaventra Group digital ecosystem.
 
-## Features
+## About Kaventra Group
 
-- Full CRUD operations for Tasks
+Kaventra Group helps international investors access Nigerian real estate through transparent, technology-driven services. This backend manages users, properties, verification workflows, documents, communications, and business operations, providing secure APIs for the website and mobile applications.
+
+Founder: Akingbonmire Sunday Dayo
+
+## Features (Current)
+
 - User registration and JWT authentication
 - Passwords hashed with bcrypt
-- Per-user data isolation (users only see their own tasks)
+- Full CRUD API (in progress, expanding toward Properties)
+- Per-user data isolation
 - Input validation with class-validator
 - Interactive API documentation via Swagger
 - PostgreSQL database hosted on Render
@@ -26,17 +32,18 @@ A secure, multi-user REST API built with NestJS, TypeORM, and PostgreSQL.
 - Validation: class-validator
 - Docs: Swagger / OpenAPI
 
-## Endpoints
+## Roadmap
 
-| Method | Route | Description | Auth Required |
-|--------|-------|-------------|----------------|
-| POST | /users | Register a new user | No |
-| POST | /auth/login | Log in, get JWT token | No |
-| GET | /tasks | Get your tasks | Yes |
-| POST | /tasks | Create a task | Yes |
-| GET | /tasks/:id | Get one task | Yes |
-| PATCH | /tasks/:id | Update a task | Yes |
-| DELETE | /tasks/:id | Delete a task | Yes |
+This project is being actively built out to match the full Kaventra Backend Blueprint, including:
+
+- Properties module
+- Investors module
+- Partners module
+- Verification workflows
+- Document management
+- Payments
+- Notifications
+- Admin dashboard
 
 ## Running Locally
 

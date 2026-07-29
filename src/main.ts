@@ -8,8 +8,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
-    .setTitle('Tasks API')
-    .setDescription('A simple Tasks CRUD API built with NestJS')
+    .setTitle('Kaventra Group API')
+    .setDescription('Backend API powering the Kaventra Group digital ecosystem — managing users, properties, verification workflows, documents, and business operations.')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);

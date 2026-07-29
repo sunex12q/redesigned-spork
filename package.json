@@ -1,8 +1,8 @@
 {
-  "name": "nest-Learning",
+  "name": "kaventra-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Backend API powering the Kaventra Group digital ecosystem",
+  "author": "Akingbonmire Sunday Dayo",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
