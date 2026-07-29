@@ -13,6 +13,7 @@ import { SavedPropertiesModule } from './saved-properties/saved-properties.modul
 import { PartnerSubmissionsModule } from './partner-submissions/partner-submissions.module';
 import { PaymentsModule } from './payments/payments.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { NotificationsModule } from './notifications/notifications.module';
     PartnerSubmissionsModule,
     PaymentsModule,
     NotificationsModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
