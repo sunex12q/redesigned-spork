@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { PropertiesModule } from './properties/properties.module';
 import { VerificationModule } from './verification/verification.module';
 import { DocumentsModule } from './documents/documents.module';
+import { SavedPropertiesModule } from './saved-properties/saved-properties.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { DocumentsModule } from './documents/documents.module';
     PropertiesModule,
     VerificationModule,
     DocumentsModule,
+    SavedPropertiesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
