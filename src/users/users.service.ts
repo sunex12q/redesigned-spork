@@ -38,6 +38,31 @@ export class UsersService {
       .getOne();
   }
 
+  async setResetToken(userId: number, token: string, expires: Date): Promise<void> {
+    await this.usersRepository.update(userId, {
+      resetToken: token,
+      resetTokenExpires: expires,
+    });
+  }
+
+  async findByResetToken(token: string): Promise<User | null> {
+    return this.usersRepository
+      .createQueryBuilder('user')
+      .addSelect('user.resetToken')
+      .addSelect('user.resetTokenExpires')
+      .where('user.resetToken = :token', { token })
+      .getOne();
+  }
+
+  async resetPassword(userId: number, newPassword: string): Promise<void> {
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    await this.usersRepository.update(userId, {
+      password: hashedPassword,
+      resetToken: undefined,
+      resetTokenExpires: undefined,
+    });
+  }
+
   async update(id: number, updateUserDto: UpdateUserDto): Promise<User | null> {
     await this.usersRepository.update(id, updateUserDto);
     return this.findOne(id);
