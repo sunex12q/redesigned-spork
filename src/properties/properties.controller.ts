@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { PropertiesService } from './properties.service';
 import { CreatePropertyDto } from './dto/create-property.dto';
 import { UpdatePropertyDto } from './dto/update-property.dto';
@@ -34,5 +35,12 @@ export class PropertiesController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.propertiesService.remove(+id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post(':id/upload-image')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadImage(@Param('id') id: string, @UploadedFile() file: Express.Multer.File) {
+    return this.propertiesService.uploadImage(+id, file);
   }
 }

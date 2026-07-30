@@ -61,6 +61,9 @@ export class Property {
   @Column({ nullable: true })
   sizeInSqm: number;
 
+  @Column('text', { array: true, default: [] })
+  imageUrls: string[];
+
   @ManyToOne(() => User)
   listedBy: User;
 
