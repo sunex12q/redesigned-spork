@@ -14,6 +14,7 @@ import { PartnerSubmissionsModule } from './partner-submissions/partner-submissi
 import { PaymentsModule } from './payments/payments.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { InquiriesModule } from './inquiries/inquiries.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     PaymentsModule,
     NotificationsModule,
     DashboardModule,
+    InquiriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
