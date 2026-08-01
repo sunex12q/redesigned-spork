@@ -43,4 +43,11 @@ export class PropertiesController {
   uploadImage(@Param('id') id: string, @UploadedFile() file: Express.Multer.File) {
     return this.propertiesService.uploadImage(+id, file);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Post(':id/upload-video')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadVideo(@Param('id') id: string, @UploadedFile() file: Express.Multer.File) {
+    return this.propertiesService.uploadVideo(+id, file);
+  }
 }

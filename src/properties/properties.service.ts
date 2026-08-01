@@ -62,4 +62,14 @@ export class PropertiesService {
     property.imageUrls = [...property.imageUrls, imageUrl];
     return this.propertiesRepository.save(property);
   }
+
+  async uploadVideo(id: number, file: Express.Multer.File): Promise<Property> {
+    const property = await this.findOne(id);
+    if (!property) {
+      throw new NotFoundException('Property not found');
+    }
+    const videoUrl = await this.cloudinaryService.uploadVideo(file);
+    property.videoUrl = videoUrl;
+    return this.propertiesRepository.save(property);
+  }
 }

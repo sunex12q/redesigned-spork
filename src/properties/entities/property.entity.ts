@@ -64,6 +64,9 @@ export class Property {
   @Column('text', { array: true, default: [] })
   imageUrls: string[];
 
+  @Column({ nullable: true })
+  videoUrl: string;
+
   @ManyToOne(() => User)
   listedBy: User;
 
